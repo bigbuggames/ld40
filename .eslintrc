@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "curly": "error",
+    "default-case": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-unused-vars": 0,
+
+    // Code style rules
+    "arrow-parens": ["error", "always"],
+    "arrow-spacing": "error",
+    "spaced-comment": ["error", "always", {
+      "line": {
+        "markers": ["/"],
+        "exceptions": ["-", "+"]
+      },
+      "block": {
+        "markers": ["!"],
+        "exceptions": ["*"],
+        "balanced": true
+      }
+    }]
+  }
+}
+  
