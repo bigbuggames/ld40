@@ -4,8 +4,7 @@ import { object, bool, func } from 'prop-types'
 
 import { loadAssets } from './assetLoaderActions'
 import { 
-  isLoadingAssets, 
-  getLoadedAssets 
+  isLoadingAssets,
 } from './assetLoaderSelectors'
 
 import Loading from '../../components/Loading'
@@ -34,7 +33,6 @@ class AssetLoader extends React.Component {
 const mapStateToProps = (state) => {
   return {
     loading: isLoadingAssets(state),
-    loadedAssets: getLoadedAssets(state)
   }
 }
 

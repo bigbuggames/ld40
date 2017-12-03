@@ -12,6 +12,6 @@ export const getAssetsByType = (state, type) => {
   return get(state, `engine.assets.byType[${type}]`, [])
 }
 
-export const getLoadedAssets = (state) => {
-  return getLoadedIds(state).map((id) => get(state, `engine.assets.byId[${id}]`))
+export const getAssetsById = (state) => {
+  return get(state, 'engine.assets.byId', {})
 }
