@@ -36,6 +36,15 @@ state: {
   game: {
     currentLevel: 'p2',
     angryLevel: 0,
+    levels: {
+      tutorial: {
+        requirements: ['intro'],
+        solution: 'hello penispum'
+      },
+      p1: '',
+      p2: '',
+      p3: ''
+    }
     solutions: {
       tutorial: 'hello penispum',
       p1: '',

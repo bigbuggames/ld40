@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import chimster from '../containers/Chimster/chimsterReducer'
+import shop from '../containers/Shop/shopReducers'
 
 export default combineReducers({
-  chimster
+  shop
 })

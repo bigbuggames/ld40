@@ -4,3 +4,8 @@ body {
   font-family: sans-serif;
   background: #040004
 }
+
+video {
+  max-width: 1280px;  
+  max-height: 720px;
+}

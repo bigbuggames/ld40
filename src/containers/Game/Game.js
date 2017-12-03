@@ -15,22 +15,7 @@ class Game extends React.Component {
   }
 
   render() {
-    return <Shop url={this.props.videos['idle-neutral']} />
-  
-    /*
-    return (
-      <ul>
-        {
-          this.props.allLoadedVideos.map((video) => {
-            return <li>
-              {video}
-              {}
-            </li>
-          })
-        }
-      </ul>
-    )
-    */
+    return <Shop />
   }
 }
 
