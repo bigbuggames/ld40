@@ -31,10 +31,6 @@ const Button = styled.div`
   z-index: 99;
 `
 
-const Text = styled.p`
-  color: white;
-`
-
 class Shop extends React.Component {
   static propTypes = {
     url: propTypes.string
@@ -51,10 +47,6 @@ class Shop extends React.Component {
       .includes(true)
   }
 
-  handleNextLevel = () => {
-    this.props.nextLevel()
-  }
-
   render() {
     const { level, videos } = this.props
     if (level) {
@@ -64,7 +56,6 @@ class Shop extends React.Component {
           <VideoFrame>
             <video autoPlay loop src={blobUrl} />
           </VideoFrame>
-          <Button onClick={this.handleNextLevel}>NEXT LEVEL</Button>
         </div>
       )
     } else {
@@ -79,22 +70,5 @@ export default connect((state) => ({
   loadedVideos: getAssetsByType(state, 'video/mp4'),
   loadedAssets: getLoadedIds(state)
 }), {
-  loadLevels,
-  nextLevel
+  loadLevels
 })(Shop)
-
-
-/*
-
- {(false) &&
-        <div>
-          <VideoFrame>
-            <video id='shop' autoPlay loop>
-              <source src={blobUrl} type='video/mp4' />
-              Your browser does not support HTML5 video
-            </video>
-          </VideoFrame>
-          <Button onClick={this.handleNextLevel}>NEXT LEVEL</Button>
-        </div>
-        }
-*/
