@@ -19,6 +19,7 @@ module.exports = {
     alias: {
       engine: path.resolve(__dirname, '../src/containers/Engine'),
       globals: path.resolve(__dirname, '../src/constants'),
+      utils: path.resolve(__dirname, '../src/utils'),      
       images: path.resolve(__dirname, '../assets/images')
     },
     plugins: [

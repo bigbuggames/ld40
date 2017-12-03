@@ -1,3 +1,4 @@
 export const LOAD_LEVELS = 'LOAD_LEVELS'
 export const NEXT_LEVEL = 'NEXT_LEVEL'
-
+export const INCREASE_MOOD = 'INCREASE_MOOD'
+export const DECREASE_MOOD = 'DECREASE_MOOD'

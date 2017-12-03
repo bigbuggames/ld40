@@ -7,7 +7,7 @@ import { getAssetsByType } from '../Engine/containers/AssetLoader/assetLoaderSel
 import { playSound, stopSound } from 'engine/actions'
 
 import Shop from './containers/Shop'
-import Tablet from './containers/Tablet'
+import Translator from './containers/Translator'
 
 class Game extends React.Component {
 
@@ -20,7 +20,7 @@ class Game extends React.Component {
     return (
       <div>
         <Shop />
-        <Tablet />
+        <Translator />
       </div>
     )
   }
