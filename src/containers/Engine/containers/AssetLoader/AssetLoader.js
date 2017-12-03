@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { object, bool, func } from 'prop-types'
 
 import { loadAssets } from './assetLoaderActions'
-import { isLoadingAssets } from './assetLoaderSelectors'
+import { 
+  isLoadingAssets, 
+  getLoadedAssets 
+} from './assetLoaderSelectors'
 
 import Loading from '../../components/Loading'
 
@@ -19,6 +22,7 @@ class AssetLoader extends React.Component {
   }
 
   render () {
+    const { loading } = this.props
     if (this.props.loading) {
       return <Loading />
     } else {
@@ -29,7 +33,8 @@ class AssetLoader extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    loading: isLoadingAssets(state)
+    loading: isLoadingAssets(state),
+    loadedAssets: getLoadedAssets(state)
   }
 }
 

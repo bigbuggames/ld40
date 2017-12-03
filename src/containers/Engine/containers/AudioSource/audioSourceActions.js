@@ -23,10 +23,12 @@ export const setupAudioSources = () => {
   return (dispatch) => {
     dispatch({ type: SETUP_AUDIO_PENDING })
 
+    window.audioSource = createAudioSource(blobUrl)
+
     return localForage.getItem('audio-sprite')
     
       .then((binary) => {  
-        const blob = new Blob([binary], { type : 'audio/mp3' })
+        const blob = new Blob([binary], { type: 'audio/mp3' })
         const blobUrl = URL.createObjectURL(blob)
     
         window.audioSource = createAudioSource(blobUrl)

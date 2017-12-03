@@ -27,12 +27,8 @@ class AudioPlayer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    audioEnabled: isAudioEnabled(state)
-  }
-}
-
-export default connect(mapStateToProps, {
+export default connect((state) => ({
+  audioEnabled: isAudioEnabled(state)
+}), {
   setupAudioSources
 })(AudioPlayer)
