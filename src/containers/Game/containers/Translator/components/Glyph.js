@@ -62,7 +62,6 @@ const letters = {
   space: space
 }
 
-
 // TODO: I don't know how to resize sprites :/
 // import glyphs from 'images/glyphs.png'
 
@@ -77,16 +76,9 @@ export default styled.img`
 `
 */
 
-const glyphStyle = {
-  border: '1px solid red',
-  backgroundColor: 'white',
-  width: '40px',
-  height: '40px'
-}
-
 export default class Glyph extends React.PureComponent {
   render() {
-    return <img width='40px' styles={glyphStyle} src={letters[this.props.char]} />
+    return <img width='12px' src={letters[this.props.char]} />
   }
 }
 

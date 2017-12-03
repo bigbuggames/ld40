@@ -1,37 +1,65 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import { removeLastChar, isValidChar } from 'utils/formatting'
-import { tryAnswer } from './translatorActions'
+import { tryAnswer, setAnswer, clearAnswer } from './translatorActions'
+import { getAnswer } from './translatorSelectors'
+import { getCurrentLevel, getGrammar, getDictionary } from '../Shop/shopSelectors'
 
 import Glyph from './components/Glyph'
 
-const TextToSpeech = styled.div`
-  width: 800px;
-  height: auto;
-  color: white;
-  border: 2px solid white;
-  border-radius: 10px;
-  margin: 20px;
+import tablet from 'images/tablet.png'
+import soundIcon from 'images/sound.png'
+
+const Tablet = styled.div`
+  position: relative;
+  margin-left: 50px;
+`
+
+const ExactWords = styled.div`
+  position: absolute;
+  width: 450px;
+  height:50px;
+  top: 412px;
+  left: 74px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #3F7F82;
+  font-family: "myrad";
+`
+
+const TextToSpeech = styled.div`
+  width: 450px;
+  height: 110px;
+  color: #547255;
+  border-radius: 10px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 520px;
+  left: 65px;
 `
 
 const Translations = styled.div`
   display: flex;
   flex-direction: column;
   width: 600px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 32px;
 `
 
 const GlyphOuput = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
   width: auto;
+  margin-bottom: 20px;  
 `
 
 const Input = styled.div`
@@ -39,26 +67,57 @@ const Input = styled.div`
   justify-content: center;
   align-items: center;
   width: auto;
+  font-family: "myrad";
+  padding-top: 10px;
 `
 
-const Button = styled.div`
-  color: white;
-  width: 150px;
-  height: 40px;
+const SoundButton = styled.div`
+  background-color: #547255;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
-  border-radius: 10px;
-  margin: 20px;
-  z-index: 99;
+  border-radius: 15px;
+  margin-right: 10px;
+  padding: 10px;
+`
+
+const Grammar = styled.ul`
+  position: absolute;
+  top: 130px;
+  left: 78px;
+  width: 195px;
+  height: 205px;
+  list-style-type: circle;
+  padding-left: 22px;
+`
+
+const Dictionary = styled.ul`
+  position: absolute;
+  top: 130px;
+  left: 310px;
+  width: 195px;
+  height: 205px;
+  padding-left: 25px;
+`
+
+const Rule = styled.li`
+  list-style-type: circle;
+  margin-top: 5px;
+  color: #777146;
+  font-family: "myrad";
+  font-size: 14px;
+`
+
+const Word = styled.li`
+  list-style-type: none;
+  margin-top: 5px;
+  color: #777146;
+  font-family: "myrad";
+  font-size: 12px;
 `
 
 class Translator extends React.Component {
-
-  state = {
-    text: ''
-  }
 
   handleKeyPress = (evt) => {
     evt = evt || window.event
@@ -67,17 +126,16 @@ class Translator extends React.Component {
 
     // if it is the delete or backspace keys
     if (charCode === 8 || charCode === 46) {
-      this.setState({ text: removeLastChar(this.state.text) })
+      this.props.setAnswer(removeLastChar(this.props.answer))
 
     // If is an english alphabet letter or a space key
     } else if (isValidChar(char)) {
-      this.setState({ text: this.state.text + char })
+      this.props.setAnswer(this.props.answer + char.toLowerCase())
 
     // If is an enter we can submit the response
     } else if (charCode === 13) {
-      this.submitAnswer(this.state.text)
+      this.submitAnswer()
     }
-
   }
 
   componentDidMount() {
@@ -85,14 +143,26 @@ class Translator extends React.Component {
   }
 
   submitAnswer = () => {
-    this.props.tryAnswer()
+    this.props.tryAnswer(this.props.answer)
   }
 
   render() {
-    const { text } = this.state
-    const textChars = text.toLowerCase().split('')
+    const { answer, level } = this.props
+    const textChars = answer.toLowerCase().split('')
     return (
-      <div>
+      <Tablet>
+        <img width='600px' src={tablet} />
+        <Grammar>
+          {this.props.grammar.map((rule, i) => {
+            return <Rule key={i}>{rule}</Rule>
+          })}
+        </Grammar>
+        <Dictionary>
+          {this.props.dictionary.map((word, i) => {
+            return <Word key={i}>{word}</Word>
+          })}
+        </Dictionary>
+        <ExactWords>{level.exactWords}</ExactWords>
         <TextToSpeech>
           <Translations>
             <GlyphOuput>
@@ -103,13 +173,24 @@ class Translator extends React.Component {
                 })
               }
             </GlyphOuput>
-            <Input>{this.state.text}</Input>
+            <Input>{answer}</Input>
           </Translations>
-          <Button onClick={this.submitAnswer}>SPEAK</Button>
+          <SoundButton onClick={this.submitAnswer}>
+            <img width='40px' src={soundIcon} />
+          </SoundButton>
         </TextToSpeech>
-      </div>
+      </Tablet>
     )
   }
 }
 
-export default connect(null, { tryAnswer })(Translator)
+export default connect((state) => ({
+  answer: getAnswer(state),
+  level: getCurrentLevel(state),
+  grammar: getGrammar(state),
+  dictionary: getDictionary(state)
+}), {
+  setAnswer,
+  clearAnswer,
+  tryAnswer 
+})(Translator)

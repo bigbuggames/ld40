@@ -1,29 +1,42 @@
-import { TRY_ANSWER } from './actionTypes'
+import { 
+  SET_ANSWER,
+  TRY_ANSWER 
+} from './actionTypes'
 
 import { 
   NEXT_LEVEL,
-  INCREASE_MOOD,
+  THE_END,
+  GAME_OVER,
   DECREASE_MOOD
 } from '../Shop/actionTypes'
+
+export const setAnswer = (text) => ({
+  type: SET_ANSWER,
+  payload: {
+    answer: text
+  }
+})
 
 export const tryAnswer = (answer) => {
   return (dispatch, getState) => {
 
-    const { currentLevel, levels } = getState().game.shop
+    const { currentLevel, levels, mood } = getState().game.shop
+    const level = levels[currentLevel]
+
+    if (mood === 0) {
+      return dispatch({ type: GAME_OVER })
+    }
 
     // Check if solution is correct
-    if (levels[currentLevel].solution === answer) {
-      dispatch({ type: INCREASE_MOOD })
-      dispatch({ type: NEXT_LEVEL })
+    if (level.solution === answer) {
+      if (currentLevel === levels.length - 1) {
+        dispatch({ type: THE_END })
+      } else {
+        dispatch({ type: NEXT_LEVEL })
+      }
     } else {
       dispatch({ type: DECREASE_MOOD })
     }
-
-
-    // Move to the next step in case it is
-
-    // Decrease
-
 
   }
 }

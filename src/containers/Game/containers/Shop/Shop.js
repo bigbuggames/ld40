@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import styled, { keyframes } from 'styled-components'
 
 import { loadLevels, nextLevel } from './shopActions'
-import { getCurrentLevel } from './shopSelectors'
+import { getCurrentLevel, getMoodLevel } from './shopSelectors'
 import { 
   getAssetsById, 
   getAssetsByType, 
@@ -32,10 +32,6 @@ const Button = styled.div`
 `
 
 class Shop extends React.Component {
-  static propTypes = {
-    url: propTypes.string
-  }
-
   componentDidMount() {
     this.props.loadLevels(levels)
   }
@@ -68,7 +64,8 @@ export default connect((state) => ({
   level: getCurrentLevel(state),
   videos: getAssetsById(state),
   loadedVideos: getAssetsByType(state, 'video/mp4'),
-  loadedAssets: getLoadedIds(state)
+  loadedAssets: getLoadedIds(state),
+  moodLevel: getMoodLevel(state)
 }), {
   loadLevels
 })(Shop)

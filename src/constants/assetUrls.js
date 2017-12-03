@@ -2,12 +2,12 @@ const assets = [
   {
     name: 'idle-neutral',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-neutral.mp4?alt=media&token=5385cdf0-f971-4ad0-821f-d5ff57e3619e'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-neutral.mp4?alt=media&token=b334c432-b4b5-4a84-bcf1-1f21487dd2ca'
   },
   {
     name: 'idle-angry',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-angry.mp4?alt=media&token=eb9a1706-2d81-4f75-ac20-3fee116d2a0a'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-angry.mp4?alt=media&token=549d70a0-4c5e-49a7-85f7-920abe978c7f'
   },
   {
     name: 'prep-rice',
@@ -27,17 +27,17 @@ const assets = [
   {
     name: 'idle-happy',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-happy.mp4?alt=media&token=15f03925-74c1-44a8-9ccd-40bd1eeff670'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-happy.mp4?alt=media&token=60297ec3-8b14-47ef-b249-78a94f8a48cb'
   },
   {
     name: 'prep-soup',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-soup.mp4?alt=media&token=3ac2d2de-d31f-4b87-9169-ce3e02afeffa'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-soup.mp4?alt=media&token=27eedc63-161b-410e-a939-a97c6f4f4f36'
   },
   {
     name: 'prep-veggies',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-veggies.mp4?alt=media&token=f02db5ad-9d4a-4b17-b4bd-0c731800866b'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-veggies.mp4?alt=media&token=243c7be6-fd23-4260-964a-1c0d2df01089'
   },
   {
     name: 'prep-dessert',

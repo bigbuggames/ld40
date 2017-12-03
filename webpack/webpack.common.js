@@ -20,7 +20,8 @@ module.exports = {
       engine: path.resolve(__dirname, '../src/containers/Engine'),
       globals: path.resolve(__dirname, '../src/constants'),
       utils: path.resolve(__dirname, '../src/utils'),      
-      images: path.resolve(__dirname, '../assets/images')
+      images: path.resolve(__dirname, '../assets/images'),
+      fonts: path.resolve(__dirname, '../assets/fonts')
     },
     plugins: [
       new DirectoryNamedWebpackPlugin()      
