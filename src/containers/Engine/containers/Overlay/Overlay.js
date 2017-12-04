@@ -49,14 +49,17 @@ const Background = styled.div`
   animation-direction: forwards;
 `
 
-const Title = styled.div`
+const ContentPanel = styled.div`
   position: relative;
   color: white;
+  z-index: 10;
 `
 
 class Overlay extends React.Component {
   render() {
     const { enabled, content, fadeDisabled, alpha } = this.props
+
+    const Content = this.props.content;
 
     if (enabled === false) { return null }
 
@@ -66,7 +69,7 @@ class Overlay extends React.Component {
       <Anchor>
         <Background fade={fadeAnimation} instant={fadeDisabled} />
         {
-          React.cloneElement(content)
+          (content) && <ContentPanel><Content /></ContentPanel>
         }
       </Anchor>
     )

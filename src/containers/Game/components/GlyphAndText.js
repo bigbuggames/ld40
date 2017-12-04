@@ -24,7 +24,7 @@ const Input = styled.div`
   align-items: center;
   width: auto;
   font-family: "myrad";
-  padding-top: 10px;
+  padding-top: 25px;
   color: white;
 `
 
@@ -47,7 +47,7 @@ export default class GlyphAndText extends React.PureComponent {
         }
         </GlyphOuput>
         {
-          (displayEnglish) && <Input>{formattedText}</Input>
+          (displayEnglish) && <Input>{text}</Input>
         }
       </Translations>
     )

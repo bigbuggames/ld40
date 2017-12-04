@@ -18,3 +18,17 @@ export const nextLevel = () => ({
 export const finishedPreping = () => ({
   type: PREPING_SUCCESS
 })
+
+export const gameOverOverlay = () => ({
+  type: 'SHOW_OVERLAY', 
+  payload: { 
+    step: 'gameOver' 
+  }
+})
+
+export const gameCompletedOverlay = () => ({
+  type: 'SHOW_OVERLAY', 
+  payload: { 
+    step: 'gameCompleted' 
+  }
+})

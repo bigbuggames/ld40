@@ -35,6 +35,9 @@ export const tryAnswer = (answer) => {
     const level = levels[currentLevel]    
     if (level.solution === answer) {
 
+      // Disable the input when preping
+      document.onkeydown = () => {}
+
       // Checking if the current level is the last one
       if (currentLevel === levels.length - 1) {
         dispatch({ type: GAME_COMPLETED })

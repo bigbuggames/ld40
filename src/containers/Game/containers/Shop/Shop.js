@@ -6,7 +6,9 @@ import styled, { keyframes } from 'styled-components'
 import { 
   loadLevels,
   nextLevel, 
-  finishedPreping 
+  finishedPreping,
+  gameOverOverlay,
+  gameCompletedOverlay
 } from './shopActions'
 
 import { 
@@ -72,11 +74,11 @@ class Shop extends React.Component {
   }
 
   handleGameOver = () => {
-    // console.log('trigger overlay for game over :(')
+    this.props.gameOverOverlay()
   }
 
   handleWinCondition = () => {
-    // console.log('trigger overlay for win :)')
+    this.props.gameCompletedOverlay()
   }
 
   render() {
@@ -130,5 +132,7 @@ export default connect((state) => ({
 }), {
   loadLevels,
   finishedPreping,
-  nextLevel
+  nextLevel,
+  gameOverOverlay,
+  gameCompletedOverlay
 })(Shop)

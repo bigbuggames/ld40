@@ -41,6 +41,8 @@ const mood = (state = 5, action) => {
 
 const preping = (state = false, action) => {
   switch (action.type) {
+    case GAME_COMPLETED:
+      return true
     case PREPING_PENDING:
       return true
     case PREPING_SUCCESS:

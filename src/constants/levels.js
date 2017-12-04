@@ -13,7 +13,6 @@ const levels = [
       ]
     }
   },
-  /*
   {
     required: ['intro'],
     exactWords: 'I want some rice',
@@ -29,7 +28,6 @@ const levels = [
       ]
     }
   }
-  */
 ]
 
 export default levels

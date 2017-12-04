@@ -6,13 +6,15 @@ import styled from 'styled-components'
 import { removeLastChar, isValidChar } from 'utils/formatting'
 import { tryAnswer, setAnswer, clearAnswer } from './translatorActions'
 import { getAnswer } from './translatorSelectors'
-import { getCurrentLevel, getGrammar, getDictionary } from '../Shop/shopSelectors'
+import { getCurrentLevel, getGrammar, getDictionary, isPreping } from '../Shop/shopSelectors'
+import { isOverlayEnabled } from '../../../Engine/containers/Overlay/overlaySelectors'
 
 import colors from 'globals/colors'
 import Glyph from 'components/Glyph'
 
 import tablet from 'images/tablet.png'
 import soundIcon from 'images/sound.png'
+import { nextLevel } from '../Shop/shopActions';
 
 const Tablet = styled.div`
   position: relative;
@@ -133,17 +135,27 @@ class Translator extends React.Component {
       this.props.setAnswer(removeLastChar(this.props.answer))
 
     // If is an english alphabet letter or a space key
-    } else if (isValidChar(char)) {
+    } else if (isValidChar(char) && this.props.preping === false) {
       this.props.setAnswer(this.props.answer + char.toLowerCase())
 
     // If is an enter we can submit the response
     } else if (charCode === 13) {
+      // const soundButton = getElementById('soundButton')
       this.submitAnswer()
     }
   }
 
   componentDidMount() {
     document.onkeydown = this.handleKeyPress;
+  }
+
+  // We disable the user input when there's an overlay opened
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.overlay) {
+      document.onkeydown = () => {};
+    } else {
+      document.onkeydown = this.handleKeyPress;
+    }
   }
 
   submitAnswer = () => {
@@ -179,7 +191,7 @@ class Translator extends React.Component {
             </GlyphOuput>
             <Input>{answer}</Input>
           </Translations>
-          <SoundButton onClick={this.submitAnswer}>
+          <SoundButton id='soundButton' onClick={this.submitAnswer}>
             <img width='40px' src={soundIcon} />
           </SoundButton>
         </TextToSpeech>
@@ -192,7 +204,9 @@ export default connect((state) => ({
   answer: getAnswer(state),
   level: getCurrentLevel(state),
   grammar: getGrammar(state),
-  dictionary: getDictionary(state)
+  dictionary: getDictionary(state),
+  overlay: isOverlayEnabled(state),
+  preping: isPreping(state)
 }), {
   setAnswer,
   clearAnswer,
