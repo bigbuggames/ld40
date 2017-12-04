@@ -26,3 +26,4 @@ export const getDictionary = (state) => getInfo(state, 'dictionary')
 
 export const isPreping = (state) => get(state, 'game.shop.preping', false)
 export const isGameOver = (state) => get(state, 'game.shop.gameOver', false)
+export const hasCompletedGame = (state) => get(state, 'game.shop.completed', false)

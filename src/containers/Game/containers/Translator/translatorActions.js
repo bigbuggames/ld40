@@ -34,7 +34,14 @@ export const tryAnswer = (answer) => {
     // Check if solution is correct
     const level = levels[currentLevel]    
     if (level.solution === answer) {
-      dispatch({ type: PREPING_PENDING })
+
+      // Checking if the current level is the last one
+      if (currentLevel === levels.length - 1) {
+        dispatch({ type: GAME_COMPLETED })
+      } else {
+        dispatch({ type: PREPING_PENDING })        
+      }
+      
     } else {
       dispatch({ type: DECREASE_MOOD })
     }

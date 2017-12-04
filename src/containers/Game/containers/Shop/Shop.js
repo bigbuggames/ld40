@@ -3,8 +3,20 @@ import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import styled, { keyframes } from 'styled-components'
 
-import { loadLevels, nextLevel, finishedPreping } from './shopActions'
-import { getCurrentLevel, getMoodLevel, isPreping, isGameOver } from './shopSelectors'
+import { 
+  loadLevels,
+  nextLevel, 
+  finishedPreping 
+} from './shopActions'
+
+import { 
+  getCurrentLevel, 
+  getMoodLevel, 
+  isPreping, 
+  isGameOver, 
+  hasCompletedGame
+} from './shopSelectors'
+
 import { 
   getAssetsById, 
   getAssetsByType, 
@@ -54,26 +66,35 @@ class Shop extends React.Component {
   }
 
   handlePrepEnd = () => {
-
-    // Check if the video is the last one
-
     this.props.finishedPreping()
     this.props.nextLevel()
     this.forceUpdate()
   }
 
   handleGameOver = () => {
-    // console.log('trigger overlay')
+    // console.log('trigger overlay for game over :(')
+  }
+
+  handleWinCondition = () => {
+    // console.log('trigger overlay for win :)')
   }
 
   render() {
-    const { level, videos, moodLevel, preping, gameOver } = this.props
+    const { level, videos, moodLevel, preping, gameOver, completed } = this.props
 
     // Handle game over animation
     if (gameOver) {
       return (
         <VideoFrame>
           <video autoPlay src={videos['game-over']} onEnded={this.handleGameOver}/>
+        </VideoFrame>
+      )
+    }
+
+    if (completed) {
+      return (
+        <VideoFrame>
+          <video autoPlay src={videos[level.prep]} onEnded={this.handleWinCondition} />
         </VideoFrame>
       )
     }
@@ -104,7 +125,8 @@ export default connect((state) => ({
   loadedAssets: getLoadedIds(state),
   moodLevel: getMoodLevel(state),
   preping: isPreping(state),
-  gameOver: isGameOver(state)
+  gameOver: isGameOver(state),
+  completed: hasCompletedGame(state)
 }), {
   loadLevels,
   finishedPreping,

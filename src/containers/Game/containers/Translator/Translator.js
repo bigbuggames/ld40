@@ -121,6 +121,7 @@ class Translator extends React.Component {
 
   handleKeyPress = (evt) => {
     evt.preventDefault()
+    
     evt = evt || window.event
     const charCode = evt.keyCode || evt.which
     const char = String.fromCharCode(charCode)

@@ -4,6 +4,7 @@ import {
   DECREASE_MOOD,
   PREPING_PENDING,
   PREPING_SUCCESS,
+  GAME_COMPLETED,
   GAME_OVER,
   RESET_GAME
 } from './actionTypes'
@@ -60,11 +61,23 @@ const gameOver = (state = false, action) => {
   }
 }
 
+const completed = (state = false, action) => {
+  switch (action.type) {
+    case GAME_COMPLETED:
+      return true
+    case RESET_GAME:
+      return false
+    default:
+      return state
+  }
+}
+
 
 export default combineReducers({
   currentLevel,
   levels,
   mood,
   preping,
-  gameOver
+  gameOver,
+  completed
 })
