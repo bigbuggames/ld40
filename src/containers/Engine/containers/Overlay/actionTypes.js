@@ -1,0 +1,3 @@
+
+export const SHOW_OVERLAY = 'SHOW_OVERLAY'
+export const CLOSE_OVERLAY = 'CLOSE_OVERLAY'

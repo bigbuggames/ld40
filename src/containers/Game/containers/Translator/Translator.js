@@ -8,6 +8,7 @@ import { tryAnswer, setAnswer, clearAnswer } from './translatorActions'
 import { getAnswer } from './translatorSelectors'
 import { getCurrentLevel, getGrammar, getDictionary } from '../Shop/shopSelectors'
 
+import colors from 'globals/colors'
 import Glyph from 'components/Glyph'
 
 import tablet from 'images/tablet.png'
@@ -16,6 +17,7 @@ import soundIcon from 'images/sound.png'
 const Tablet = styled.div`
   position: relative;
   margin-left: 50px;
+  z-index: -1;
 `
 
 const ExactWords = styled.div`
@@ -27,14 +29,14 @@ const ExactWords = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #3F7F82;
+  color: ${colors.textBlue};
   font-family: "myrad";
 `
 
 const TextToSpeech = styled.div`
   width: 450px;
   height: 110px;
-  color: #547255;
+  color: ${colors.textGreen};
   border-radius: 10px;
   margin-left: 15px;
   display: flex;
@@ -72,7 +74,7 @@ const Input = styled.div`
 `
 
 const SoundButton = styled.div`
-  background-color: #547255;
+  background-color: ${colors.textGreen};
   height: 80px;
   display: flex;
   justify-content: center;
@@ -104,7 +106,7 @@ const Dictionary = styled.ul`
 const Rule = styled.li`
   list-style-type: circle;
   margin-top: 5px;
-  color: #777146;
+  color: ${colors.textYellow};
   font-family: "myrad";
   font-size: 14px;
 `
@@ -112,7 +114,7 @@ const Rule = styled.li`
 const Word = styled.li`
   list-style-type: none;
   margin-top: 5px;
-  color: #777146;
+  color:${colors.textYellow};
   font-family: "myrad";
   font-size: 12px;
 `
