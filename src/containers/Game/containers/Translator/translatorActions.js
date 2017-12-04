@@ -42,6 +42,7 @@ export const tryAnswer = (answer) => {
       if (currentLevel === levels.length - 1) {
         dispatch({ type: GAME_COMPLETED })
       } else {
+        window.audioSource.play(level.prep)
         dispatch({ type: PREPING_PENDING })        
       }
       

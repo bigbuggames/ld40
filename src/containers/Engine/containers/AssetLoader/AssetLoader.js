@@ -16,14 +16,23 @@ class AssetLoader extends React.Component {
     loadAssets: func
   }
 
+  state = {
+    continue: false
+  }
+
   componentDidMount() {
     this.props.loadAssets()
   }
 
+  handleLoadingDone = () => {
+    this.setState({ continue: true })
+  }
+
   render () {
     const { loading } = this.props
-    if (this.props.loading) {
-      return <Loading />
+
+    if (this.state.continue === false) {
+      return <Loading handleClick={this.handleLoadingDone} />
     } else {
       return this.props.children
     }

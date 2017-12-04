@@ -1,13 +1,14 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import { removeLastChar, isValidChar } from 'utils/formatting'
 import { tryAnswer, setAnswer, clearAnswer } from './translatorActions'
 import { getAnswer } from './translatorSelectors'
 import { getCurrentLevel, getGrammar, getDictionary, isPreping } from '../Shop/shopSelectors'
 import { isOverlayEnabled } from '../../../Engine/containers/Overlay/overlaySelectors'
+import { playSound } from 'engine/actions'
 
 import colors from 'globals/colors'
 import Glyph from 'components/Glyph'
@@ -33,6 +34,7 @@ const ExactWords = styled.div`
   align-items: center;
   color: ${colors.textBlue};
   font-family: "myrad";
+  font-size: 20px;
 `
 
 const TextToSpeech = styled.div`
@@ -63,7 +65,8 @@ const GlyphOuput = styled.div`
   justify-content: center;
   align-items: center;
   width: auto;
-  margin-bottom: 20px;  
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 `
 
 const Input = styled.div`
@@ -72,7 +75,12 @@ const Input = styled.div`
   align-items: center;
   width: auto;
   font-family: "myrad";
-  padding-top: 10px;
+`
+
+const buttonFeedback = keyframes`
+  0% { background-color: ${colors.textGreen} }
+  50% { background-color: ${colors.red} }
+  100% { background-color: ${colors.textGreen} }
 `
 
 const SoundButton = styled.div`
@@ -84,6 +92,7 @@ const SoundButton = styled.div`
   border-radius: 15px;
   margin-right: 10px;
   padding: 10px;
+  animation: ${buttonFeedback} ${(props) => props.feedback ? '300ms' : '0ms'};
 `
 
 const Grammar = styled.ul`
@@ -118,7 +127,6 @@ const Word = styled.li`
   margin-top: 5px;
   color:${colors.textYellow};
   font-family: "myrad";
-  font-size: 12px;
 `
 
 class Translator extends React.Component {
@@ -210,5 +218,6 @@ export default connect((state) => ({
 }), {
   setAnswer,
   clearAnswer,
-  tryAnswer 
+  tryAnswer,
+  playSound
 })(Translator)

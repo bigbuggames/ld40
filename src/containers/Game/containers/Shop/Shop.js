@@ -88,7 +88,11 @@ class Shop extends React.Component {
     if (gameOver) {
       return (
         <VideoFrame>
-          <video autoPlay src={videos['game-over']} onEnded={this.handleGameOver}/>
+          <video 
+            autoPlay
+            src={videos['game-over']} 
+            onEnded={this.handleGameOver}
+          />
         </VideoFrame>
       )
     }
@@ -96,7 +100,11 @@ class Shop extends React.Component {
     if (completed) {
       return (
         <VideoFrame>
-          <video autoPlay src={videos[level.prep]} onEnded={this.handleWinCondition} />
+          <video 
+            autoPlay
+            src={videos[level.prep]} 
+            onEnded={this.handleWinCondition} 
+          />
         </VideoFrame>
       )
     }
@@ -105,7 +113,11 @@ class Shop extends React.Component {
     if (preping) {
       return (
         <VideoFrame>
-          <video autoPlay src={videos[level.prep]} onEnded={this.handlePrepEnd} />
+          <video 
+            autoPlay 
+            src={videos[level.prep]} 
+            onEnded={this.handlePrepEnd} 
+          />
         </VideoFrame>
       )
     }
@@ -113,7 +125,11 @@ class Shop extends React.Component {
     // Handle idle modes by default
     return (
       <VideoFrame>
-        <video autoPlay loop src={this.idleMode(videos, moodLevel)} />
+        <video 
+          autoPlay 
+          loop 
+          src={this.idleMode(videos, moodLevel)} 
+        />
       </VideoFrame>
     )
 

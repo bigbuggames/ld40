@@ -1,5 +1,10 @@
 const assets = [
   {
+    name: 'audio-sprite',
+    type: 'audio/ogg',
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/audacity-sample.ogg?alt=media&token=ddb54e4e-5b96-42c9-892d-cc6b8f1385fb'
+  },
+  {
     name: 'idle-neutral',
     type: 'video/mp4',
     url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-neutral.mp4?alt=media&token=b334c432-b4b5-4a84-bcf1-1f21487dd2ca'

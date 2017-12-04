@@ -10,7 +10,7 @@ import {
 } from './overlaySelectors'
 
 import colors from 'globals/colors'
-const alpha = 0.6;
+const alpha = 0.8;
 
 const Anchor = styled.div`
   position: absolute;

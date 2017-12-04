@@ -10,7 +10,9 @@ export default class Engine extends React.PureComponent {
     return (
       <AssetLoader>
         <Overlay />
-        {this.props.children}
+        <AudioSource>
+          {this.props.children}
+        </AudioSource>
       </AssetLoader>
     )
   }
