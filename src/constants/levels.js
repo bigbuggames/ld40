@@ -2,8 +2,8 @@ const levels = [
   {
     required: ['intro'],
     exactWords: 'Hello traveler',
-    solution: 'hello penisus',
-    prep: 'idle-neutral',
+    solution: 'hello',
+    prep: 'prep-meat',
     notes: {
       grammar: [
         'words ending with (fu) now end with (mu)'  
@@ -17,7 +17,7 @@ const levels = [
     required: ['intro'],
     exactWords: 'I want some rice',
     solution: 'oh que poya',
-    prep: 'idle-happy',
+    prep: 'prep-rice',
     notes: {
       grammar: [
         'sefsefsffgesg'
@@ -26,7 +26,8 @@ const levels = [
         'oh => que',
         'rice => poya'
       ]
-    }
+    },
+    end: true
   }
 ]
 

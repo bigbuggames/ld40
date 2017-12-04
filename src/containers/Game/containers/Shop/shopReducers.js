@@ -1,8 +1,11 @@
 import {
   LOAD_LEVELS,
   NEXT_LEVEL,
-  INCREASE_MOOD,
-  DECREASE_MOOD
+  DECREASE_MOOD,
+  PREPING_PENDING,
+  PREPING_SUCCESS,
+  GAME_OVER,
+  RESET_GAME
 } from './actionTypes'
 import { combineReducers } from 'redux'
 
@@ -35,8 +38,33 @@ const mood = (state = 5, action) => {
   }
 }
 
+const preping = (state = false, action) => {
+  switch (action.type) {
+    case PREPING_PENDING:
+      return true
+    case PREPING_SUCCESS:
+      return false
+    default:
+      return state
+  }
+}
+
+const gameOver = (state = false, action) => {
+  switch (action.type) {
+    case GAME_OVER:
+      return true
+    case RESET_GAME:
+      return false
+    default:
+      return state
+  }
+}
+
+
 export default combineReducers({
   currentLevel,
   levels,
-  mood
+  mood,
+  preping,
+  gameOver
 })

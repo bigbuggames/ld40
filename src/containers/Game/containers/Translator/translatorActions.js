@@ -5,9 +5,10 @@ import {
 
 import { 
   NEXT_LEVEL,
-  THE_END,
+  GAME_COMPLETED,
   GAME_OVER,
-  DECREASE_MOOD
+  DECREASE_MOOD,
+  PREPING_PENDING
 } from '../Shop/actionTypes'
 
 export const setAnswer = (text) => ({
@@ -19,21 +20,21 @@ export const setAnswer = (text) => ({
 
 export const tryAnswer = (answer) => {
   return (dispatch, getState) => {
+    if (answer === '') { return }    
 
-    const { currentLevel, levels, mood } = getState().game.shop
-    const level = levels[currentLevel]
+    const { currentLevel, levels, mood, gameOver, preping } = getState().game.shop
+
+    // Avoid user interaction when not needed
+    if (gameOver || preping) { return }
 
     if (mood === 0) {
       return dispatch({ type: GAME_OVER })
     }
 
     // Check if solution is correct
+    const level = levels[currentLevel]    
     if (level.solution === answer) {
-      if (currentLevel === levels.length - 1) {
-        dispatch({ type: THE_END })
-      } else {
-        dispatch({ type: NEXT_LEVEL })
-      }
+      dispatch({ type: PREPING_PENDING })
     } else {
       dispatch({ type: DECREASE_MOOD })
     }

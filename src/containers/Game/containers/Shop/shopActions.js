@@ -1,6 +1,7 @@
 import {
   LOAD_LEVELS,
-  NEXT_LEVEL
+  NEXT_LEVEL,
+  PREPING_SUCCESS
 } from './actionTypes'
 
 export const loadLevels = (levels) => ({
@@ -10,6 +11,10 @@ export const loadLevels = (levels) => ({
   }
 })
 
-export const nextLevel= (levelName) => ({ 
+export const nextLevel = () => ({ 
   type: NEXT_LEVEL
+})
+
+export const finishedPreping = () => ({
+  type: PREPING_SUCCESS
 })

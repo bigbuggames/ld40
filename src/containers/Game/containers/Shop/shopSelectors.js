@@ -23,3 +23,6 @@ const getInfo = (state, key) => {
 
 export const getGrammar = (state) => getInfo(state, 'grammar')
 export const getDictionary = (state) => getInfo(state, 'dictionary')
+
+export const isPreping = (state) => get(state, 'game.shop.preping', false)
+export const isGameOver = (state) => get(state, 'game.shop.gameOver', false)

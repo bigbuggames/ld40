@@ -3,8 +3,8 @@ import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import styled, { keyframes } from 'styled-components'
 
-import { loadLevels, nextLevel } from './shopActions'
-import { getCurrentLevel, getMoodLevel } from './shopSelectors'
+import { loadLevels, nextLevel, finishedPreping } from './shopActions'
+import { getCurrentLevel, getMoodLevel, isPreping, isGameOver } from './shopSelectors'
 import { 
   getAssetsById, 
   getAssetsByType, 
@@ -43,20 +43,57 @@ class Shop extends React.Component {
       .includes(true)
   }
 
-  render() {
-    const { level, videos } = this.props
-    if (level) {
-      const blobUrl = videos[level.prep]
-      return (
-        <div>
-          <VideoFrame>
-            <video autoPlay loop src={blobUrl} />
-          </VideoFrame>
-        </div>
-      )
+  idleMode = (videos, moodLevel) => {
+    if (moodLevel < 4) {
+      return videos['idle-angry']
+    } else if (moodLevel >= 6) {
+      return videos['idle-happy']
     } else {
-      return null
+      return videos['idle-neutral']
     }
+  }
+
+  handlePrepEnd = () => {
+
+    // Check if the video is the last one
+
+    this.props.finishedPreping()
+    this.props.nextLevel()
+    this.forceUpdate()
+  }
+
+  handleGameOver = () => {
+    console.log('trigger overlay')
+  }
+
+  render() {
+    const { level, videos, moodLevel, preping, gameOver } = this.props
+
+    // Handle game over animation
+    if (gameOver) {
+      return (
+        <VideoFrame>
+          <video autoPlay src={videos['game-over']} onEnded={this.handleGameOver}/>
+        </VideoFrame>
+      )
+    }
+
+    // Handle prep animations
+    if (preping) {
+      return (
+        <VideoFrame>
+          <video autoPlay src={videos[level.prep]} onEnded={this.handlePrepEnd} />
+        </VideoFrame>
+      )
+    }
+
+    // Handle idle modes by default
+    return (
+      <VideoFrame>
+        <video autoPlay loop src={this.idleMode(videos, moodLevel)} />
+      </VideoFrame>
+    )
+
   }
 }
 
@@ -65,7 +102,11 @@ export default connect((state) => ({
   videos: getAssetsById(state),
   loadedVideos: getAssetsByType(state, 'video/mp4'),
   loadedAssets: getLoadedIds(state),
-  moodLevel: getMoodLevel(state)
+  moodLevel: getMoodLevel(state),
+  preping: isPreping(state),
+  gameOver: isGameOver(state)
 }), {
-  loadLevels
+  loadLevels,
+  finishedPreping,
+  nextLevel
 })(Shop)
