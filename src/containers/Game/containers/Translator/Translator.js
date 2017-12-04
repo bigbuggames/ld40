@@ -8,7 +8,7 @@ import { tryAnswer, setAnswer, clearAnswer } from './translatorActions'
 import { getAnswer } from './translatorSelectors'
 import { getCurrentLevel, getGrammar, getDictionary } from '../Shop/shopSelectors'
 
-import Glyph from './components/Glyph'
+import Glyph from 'components/Glyph'
 
 import tablet from 'images/tablet.png'
 import soundIcon from 'images/sound.png'
@@ -121,7 +121,7 @@ class Translator extends React.Component {
 
   handleKeyPress = (evt) => {
     evt.preventDefault()
-    
+
     evt = evt || window.event
     const charCode = evt.keyCode || evt.which
     const char = String.fromCharCode(charCode)
