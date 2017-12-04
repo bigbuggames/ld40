@@ -63,7 +63,7 @@ class Shop extends React.Component {
   }
 
   handleGameOver = () => {
-    console.log('trigger overlay')
+    // console.log('trigger overlay')
   }
 
   render() {
