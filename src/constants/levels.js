@@ -3,7 +3,7 @@ const levels = [
     required: ['intro'],
     exactWords: 'Salutations chef',
     solution: 'aaa',
-    //solution: 'salutationpen ramsay',
+    // solution: 'salutationpen ramsay',
     prep: 'idle-happy',
     notes: {
       grammar: [
@@ -18,7 +18,7 @@ const levels = [
     required: ['intro'],
     exactWords: 'Martian pinapples ala Pikotaro',
     solution: 'aaa',
-    //solution: 'portian pineapplepen ala pikotaro',
+    // solution: 'portian pineapplepen ala pikotaro',
     prep: 'prep-veggies',
     notes: {
       grammar: [
@@ -31,7 +31,7 @@ const levels = [
     required: ['intro'],
     exactWords: 'Homemade soup of the Gods',
     solution: 'aaa',
-    //solution: 'pep godpen hopopode soup of',
+    // solution: 'pep godpen hopopode soup of',
     prep: 'prep-soup',
     notes: {
       grammar: [
@@ -46,7 +46,7 @@ const levels = [
     required: ['intro'],
     exactWords: 'The mother of all marmalade mountains',
     solution: 'aaa',
-    //solution: 'pep pother of lla porpolade pountainpen',
+    // solution: 'pep pother of lla porpolade pountainpen',
     prep: 'prep-dessert',
     notes: {
       grammar: [
@@ -59,7 +59,7 @@ const levels = [
     required: ['intro'],
     exactWords: 'Give me the bill please',
     solution: 'aaa',
-    //solution: 'pep petrifax please give po',
+    // solution: 'pep petrifax please give po',
     prep: 'petrifax',
     notes: {
       grammar: [],

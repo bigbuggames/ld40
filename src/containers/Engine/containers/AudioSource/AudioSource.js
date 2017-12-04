@@ -21,7 +21,7 @@ class AudioPlayer extends React.Component {
   createAudioSource = (blobUrl) => {
     return new Howl({
       src: [blobUrl],
-      format: ['ogg'],
+      format: ['mp3'],
       sprite: audioSprites
     })
   }
@@ -53,7 +53,7 @@ class AudioPlayer extends React.Component {
 
 export default connect((state) => ({
   audioEnabled: isAudioEnabled(state),
-  audioAssets: getAssetsByType(state, 'audio/ogg'),
+  audioAssets: getAssetsByType(state, 'audio/mp3'),
   assetsById: getAssetsById(state)
 }), {
   setupAudioSources

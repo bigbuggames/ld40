@@ -1,8 +1,8 @@
 const assets = [
   {
     name: 'audio-sprite',
-    type: 'audio/ogg',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/audacity-sample.ogg?alt=media&token=ddb54e4e-5b96-42c9-892d-cc6b8f1385fb'
+    type: 'audio/mp3',
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/howler-sprite.mp3?alt=media&token=59775be4-2a64-4a6a-8fdf-b88e11346f77'
   },
   {
     name: 'idle-neutral',

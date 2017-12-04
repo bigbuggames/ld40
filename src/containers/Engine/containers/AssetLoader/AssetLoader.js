@@ -32,7 +32,7 @@ class AssetLoader extends React.Component {
     const { loading } = this.props
 
     if (this.state.continue === false) {
-      return <Loading handleClick={this.handleLoadingDone} />
+      return <Loading handleClick={this.handleLoadingDone} loading={loading} />
     } else {
       return this.props.children
     }

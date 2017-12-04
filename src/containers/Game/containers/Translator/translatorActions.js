@@ -31,6 +31,8 @@ export const tryAnswer = (answer) => {
       return dispatch({ type: GAME_OVER })
     }
 
+    window.audioSource.volume(0.6)
+
     // Check if solution is correct
     const level = levels[currentLevel]    
     if (level.solution === answer) {
@@ -47,6 +49,8 @@ export const tryAnswer = (answer) => {
       }
       
     } else {
+      const randomNum = Math.trunc((Math.random() * 6) + 1)
+      window.audioSource.play(`error${randomNum}`)
       dispatch({ type: DECREASE_MOOD })
     }
 

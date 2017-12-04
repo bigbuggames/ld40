@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import GlyphAndText from '../../Game/components/GlyphAndText'
 
@@ -13,17 +13,19 @@ const AppContainer = styled.div`
   flex-direction: column;
 `
 
+const showButton = keyframes`
+  from: { opacity: 0; }
+  to: { opacity: 1; }
+`
+
 const Continue = styled.div`
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid ${colors.textGreen};
   border-radius: 15px;
   padding: 5px;
   font-size: 20px;
   align-self: flex-end;
   margin-right: 20px;
+  animation: ${showButton} 1s linear forwards;
 `
 
 const Intro = styled.div`
@@ -34,6 +36,13 @@ const Intro = styled.div`
   margin-bottom: 100px;
   font-family: "myrad";
   letter-spacing: 1px;
+`
+
+const Text = styled.div`
+  color: gray;
+  margin-top: 10px;
+  font-family: "myrad";
+  font-size: 20px;
 `
 
 export default class Loading extends React.Component {
@@ -65,12 +74,16 @@ export default class Loading extends React.Component {
     return (
       <AppContainer>
         <GlyphAndText text={this.state.text} size='40px' />
+        <Text>(Loading)</Text>
         <Intro>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacus libero, luctus vel dignissim nec, accumsan et orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent et mi laoreet, ornare mi quis, consectetur risus. In id velit ut enim pharetra commodo. Proin vel lectus felis. Fusce iaculis dolor gravida pretium molestie. Nullam ac semper lectus. 
         </Intro>
-        <Continue onClick={this.props.handleClick}>
-          <GlyphAndText text='(Continue)' size='20px' />
-        </Continue>
+        {
+          (this.props.loading === false) &&
+            <Continue onClick={this.props.handleClick}>
+              <GlyphAndText text='(Continue)' size='20px' />
+            </Continue>
+        }
       </AppContainer>
     )
   }
