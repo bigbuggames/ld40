@@ -1,6 +1,8 @@
 
+
+import GameOver from '../containers/Game/containers/Screens/GameOver'
+
 export default {
-  tutorial: 'Tutorial',
-  gameOver: 'GAME OVER',
-  win: 'WIN'
+  gameOver: GameOver,
+  gameCompleted: 'WIN'
 }

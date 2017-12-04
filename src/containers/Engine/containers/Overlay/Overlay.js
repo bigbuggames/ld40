@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cloneElement } from 'react'
 import { connect } from 'react-redux'
 import styled, { keyframes } from 'styled-components'
 
@@ -65,7 +65,9 @@ class Overlay extends React.Component {
     return (
       <Anchor>
         <Background fade={fadeAnimation} instant={fadeDisabled} />
-        <Title>{content}</Title>
+        {
+          React.cloneElement(content)
+        }
       </Anchor>
     )
   }

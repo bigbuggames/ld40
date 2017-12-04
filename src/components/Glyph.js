@@ -78,7 +78,7 @@ export default styled.img`
 
 export default class Glyph extends React.PureComponent {
   render() {
-    return <img width='12px' src={letters[this.props.char]} />
+    return <img width={this.props.size || '12px'} src={letters[this.props.char]} />
   }
 }
 
