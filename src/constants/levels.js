@@ -2,12 +2,14 @@ const levels = [
   {
     required: ['intro'],
     exactWords: 'Salutations chef',
-    // solution: 'aaa',
-    solution: 'salutationpen ramsay',
+    solution: [
+      'salutationpen ramsay',
+      'i give up'
+    ],
     prep: 'salutation',
     notes: {
       grammar: [
-        'words ending with (s) now end with (pen)'  
+        'words ending with (s) now instead end with (pen)'  
       ],
       dictionary: [
         'chef => ramsay'
@@ -16,9 +18,11 @@ const levels = [
   },
   {
     required: ['intro'],
-    exactWords: 'Martian pinapples ala Pikotaro',
-    // solution: 'aaa',
-    solution: 'portian pineapplepen ala pikotaro',
+    exactWords: 'Martian pineapples ala Pikotaro',
+    solution: [
+      'portian pineapplepen ala pikotaro',
+      'i give up'
+    ],
     prep: 'prep-veggies',
     notes: {
       grammar: [
@@ -30,8 +34,10 @@ const levels = [
   {
     required: ['intro'],
     exactWords: 'Homemade soup of the Gods',
-    // solution: 'aaa',
-    solution: 'pep godpen hopopode soup of',
+    solution: [
+      'pep godpen hopopode soup of',
+      'i give up'
+    ],
     prep: 'prep-soup',
     notes: {
       grammar: [
@@ -45,8 +51,12 @@ const levels = [
   {
     required: ['intro'],
     exactWords: 'The mother of all marmalade mountains',
-    // solution: 'aaa',
-    solution: 'pep pother of lla porpolade pountainpen',
+    solution: [
+      'pep pother of lla porpolade pountainpen',
+      'pep popepr of lla porpolade pountainpen',
+      'pepr of lla porpolade pountainpen pep po',
+      'i give up'
+    ],
     prep: 'prep-dessert',
     notes: {
       grammar: [
@@ -58,8 +68,10 @@ const levels = [
   {
     required: ['intro'],
     exactWords: 'Give me the bill please',
-    // solution: 'aaa',
-    solution: 'pep petrifax please give po',
+    solution: [
+      'pep petrifax please give po',
+      'i give up'
+    ],
     prep: 'petrifax',
     notes: {
       grammar: [],

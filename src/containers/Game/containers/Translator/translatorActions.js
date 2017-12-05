@@ -18,8 +18,6 @@ export const setAnswer = (text) => ({
   }
 })
 
-
-
 export const tryAnswer = (answer) => {
   return (dispatch, getState) => {
     if (answer === '') { return }    
@@ -48,8 +46,8 @@ export const tryAnswer = (answer) => {
     window.audioSource.volume(0.6)
 
     // Check if solution is correct
-    const level = levels[currentLevel]    
-    if (level.solution === answer) {
+    const level = levels[currentLevel]
+    if (level.solution.includes(answer)) {
 
       // Disable the input when preping
       document.onkeydown = () => {}
