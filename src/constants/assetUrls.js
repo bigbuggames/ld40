@@ -7,52 +7,47 @@ const assets = [
   {
     name: 'idle-neutral',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-neutral.mp4?alt=media&token=b334c432-b4b5-4a84-bcf1-1f21487dd2ca'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-neutral.mp4?alt=media&token=d6b64b6e-228a-4f63-9fb1-e60f10095997'
   },
   {
     name: 'idle-angry',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-angry.mp4?alt=media&token=549d70a0-4c5e-49a7-85f7-920abe978c7f'
-  },
-  {
-    name: 'prep-rice',
-    type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-rice.mp4?alt=media&token=acbb094a-af4e-4f8d-99d3-ef7800d77d33'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-angry.mp4?alt=media&token=02cd5c09-0dab-4795-8b1a-71c63ff07153'
   },
   {
     name: 'game-over',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/game-over.mp4?alt=media&token=842f683d-b4ea-43ab-8ee0-f32587894784'
-  },
-  {
-    name: 'prep-meat',
-    type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-meat.mp4?alt=media&token=a2f9af7d-e1a5-4ffe-aef9-22bbb81eced4'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/game-over.mp4?alt=media&token=d5652c1e-52fc-4bce-960e-3b6200f8d371'
   },
   {
     name: 'idle-happy',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-happy.mp4?alt=media&token=60297ec3-8b14-47ef-b249-78a94f8a48cb'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/idle-happy.mp4?alt=media&token=5d1f6fbd-f1a3-47ad-a16c-0bfaa50855a1'
   },
   {
     name: 'prep-soup',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-soup.mp4?alt=media&token=27eedc63-161b-410e-a939-a97c6f4f4f36'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-soup.mp4?alt=media&token=e798ecb6-756f-40fe-a11e-7a3dbddbc773'
   },
   {
     name: 'prep-veggies',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-veggies.mp4?alt=media&token=243c7be6-fd23-4260-964a-1c0d2df01089'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-veggies.mp4?alt=media&token=cb1b8056-3204-4703-ba58-544b7b2a710a'
   },
   {
     name: 'prep-dessert',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-dessert.mp4?alt=media&token=80305391-a558-4df7-89d4-ee9d1f05c766'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/prep-dessert.mp4?alt=media&token=755045a0-0ceb-4129-a76c-39376de72e6d'
   },
   {
     name: 'petrifax',
     type: 'video/mp4',
-    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/petrifax.mp4?alt=media&token=90a5362b-6109-4a1c-803f-5dda843f8d41'
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/petrifax.mp4?alt=media&token=c91343fc-ee23-47e8-b7a7-ff5ebb5c071f'
+  },
+  {
+    name: 'salutation',
+    type: 'video/mp4',
+    url: 'https://firebasestorage.googleapis.com/v0/b/ld40-703cd.appspot.com/o/salutation.mp4?alt=media&token=f0791a31-4564-41ef-aab3-cf2d62074923'
   }
 ]
 

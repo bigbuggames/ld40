@@ -115,7 +115,8 @@ class Shop extends React.Component {
         <VideoFrame>
           <video 
             autoPlay 
-            src={videos[level.prep]} 
+            src={videos[level.prep]}
+            volume={0.5}
             onEnded={this.handlePrepEnd} 
           />
         </VideoFrame>

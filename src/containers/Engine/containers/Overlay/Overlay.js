@@ -47,6 +47,7 @@ const Background = styled.div`
   animation-name: ${(props) => props.fade};
   animation-duration: ${(props) => (props.instant) ? '0ms' : '250ms'};
   animation-direction: forwards;
+  z-index: 3;
 `
 
 const ContentPanel = styled.div`

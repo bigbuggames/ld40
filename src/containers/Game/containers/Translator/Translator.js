@@ -20,7 +20,6 @@ import { nextLevel } from '../Shop/shopActions';
 const Tablet = styled.div`
   position: relative;
   margin-left: 50px;
-  z-index: -1;
 `
 
 const ExactWords = styled.div`

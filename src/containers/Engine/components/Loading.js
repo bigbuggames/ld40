@@ -19,12 +19,11 @@ const showButton = keyframes`
 `
 
 const Continue = styled.div`
-  border: 1px solid ${colors.textGreen};
+  border: 2px solid ${colors.textGreen};
   border-radius: 15px;
   padding: 5px;
   font-size: 20px;
   align-self: flex-end;
-  margin-right: 20px;
   animation: ${showButton} 1s linear forwards;
 `
 
@@ -33,9 +32,10 @@ const Intro = styled.div`
   width: 800px;
   font-size: 20px;
   margin-top: 75px;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   font-family: "myrad";
   letter-spacing: 1px;
+  text-align: justify;
 `
 
 const Text = styled.div`
@@ -76,12 +76,13 @@ export default class Loading extends React.Component {
         <GlyphAndText text={this.state.text} size='40px' />
         <Text>(Loading)</Text>
         <Intro>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacus libero, luctus vel dignissim nec, accumsan et orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent et mi laoreet, ornare mi quis, consectetur risus. In id velit ut enim pharetra commodo. Proin vel lectus felis. Fusce iaculis dolor gravida pretium molestie. Nullam ac semper lectus. 
+          <p>Right after being awoken in the future, Steve and Sam, two workers from the <nobr>Cryo-company</nobr> ask you to go and get some food at the takeaway, cool huh?</p>
+          <p>English has changed quite a bit in the last 1000 years, this software is the closest thing there is to make yourself more understandable, but you'll still have to think things through. Make use of the “notes” and write the correct form of the sentence asked.</p> 
         </Intro>
         {
           (this.props.loading === false) &&
             <Continue onClick={this.props.handleClick}>
-              <GlyphAndText text='(Continue)' size='20px' />
+              <GlyphAndText text='(Continue)' size='21px' />
             </Continue>
         }
       </AppContainer>

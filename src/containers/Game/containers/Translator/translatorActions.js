@@ -18,6 +18,8 @@ export const setAnswer = (text) => ({
   }
 })
 
+
+
 export const tryAnswer = (answer) => {
   return (dispatch, getState) => {
     if (answer === '') { return }    
@@ -26,6 +28,18 @@ export const tryAnswer = (answer) => {
 
     // Avoid user interaction when not needed
     if (gameOver || preping) { return }
+
+    /*
+    window.audioSource.on('end', () => {
+      if (level.solution === answer) {
+        if (currentLevel !== levels.length - 1) {
+          dispatch({ type: PREPING_PENDING })
+        }
+      } else {
+        dispatch({ type: DECREASE_MOOD })
+      }
+    })
+    */
 
     if (mood === 0) {
       return dispatch({ type: GAME_OVER })
@@ -42,15 +56,16 @@ export const tryAnswer = (answer) => {
 
       // Checking if the current level is the last one
       if (currentLevel === levels.length - 1) {
+        const id = window.audioSource.play('petrifax')
         dispatch({ type: GAME_COMPLETED })
       } else {
-        window.audioSource.play(level.prep)
-        dispatch({ type: PREPING_PENDING })        
+        const id = window.audioSource.play(level.prep)
+        dispatch({ type: PREPING_PENDING })
       }
       
     } else {
       const randomNum = Math.trunc((Math.random() * 6) + 1)
-      window.audioSource.play(`error${randomNum}`)
+      const id = window.audioSource.play(`error${randomNum}`)
       dispatch({ type: DECREASE_MOOD })
     }
 
