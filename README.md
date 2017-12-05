@@ -14,43 +14,4 @@ To allow CORS for gh-pages:
     }
 ]
 
-$ gsutil cors set firebase-cors.json gs://ld40-703cd.appspot.com/
-
-state: {
-
-  engine: {
-    isLoading: true,
-    audioEnabled: true
-    assets: {
-      loading: true,
-      byId: {
-        'intro': 'asfefs'
-      },
-      byType: {
-        'video/mp4': ['intro']
-      },
-      allIds: ['intro']
-    }
-  },
-
-  game: {
-    currentLevel: 'p2',
-    angryLevel: 0,
-    levels: {
-      tutorial: {
-        requirements: ['intro'],
-        solution: 'hello penispum'
-      },
-      p1: '',
-      p2: '',
-      p3: ''
-    }
-    solutions: {
-      tutorial: 'hello penispum',
-      p1: '',
-      p2: '',
-      p3: ''
-    }
-  }
-
-}
+$ gsutil cors set firebase-cors.json gs://ld40-703cd.appspot.com/S

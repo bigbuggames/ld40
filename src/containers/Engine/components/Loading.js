@@ -45,13 +45,19 @@ const Text = styled.div`
   font-size: 20px;
 `
 
+const LoadingTitle = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
 export default class Loading extends React.Component {
   state = {
     text: 'Loading'
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.createRandomString, 100)
+    this.interval = setInterval(this.createRandomString, 250)
   }
 
   randomLetter = () => {
@@ -73,10 +79,16 @@ export default class Loading extends React.Component {
   render() {
     return (
       <AppContainer>
-        <GlyphAndText text={this.state.text} size='40px' />
-        <Text>(Loading)</Text>
+        {
+          (this.props.loading === false)
+            ? <GlyphAndText text='Loading' size='40px' />
+            : <LoadingTitle>
+                <GlyphAndText text={this.state.text} size='40px' />
+                <Text>(Loading)</Text> 
+              </LoadingTitle>
+        }
         <Intro>
-          <p>Right after being awoken in the future, Steve and Sam, two workers from the <nobr>Cryo-company</nobr> ask you to go and get some food at the takeaway, cool huh?</p>
+          <p>Right after being awoken in the future, a worker from the <nobr>Cryo-company</nobr> ask you to go and get some food at the takeaway, cool huh?</p>
           <p>English has changed quite a bit in the last 1000 years, this software is the closest thing there is to make yourself more understandable, but you'll still have to think things through. Make use of the “notes” and write the correct form of the sentence asked.</p> 
         </Intro>
         {

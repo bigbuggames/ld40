@@ -76,6 +76,23 @@ const Input = styled.div`
   font-family: "myrad";
 `
 
+const Text = styled.div`
+  height: 15px;
+`
+
+const blink = keyframes`
+  50% { opacity: 0; }
+`
+
+const BlinkingCursor = styled.div`
+  background-color: ${colors.textGreen};
+  margin-left: 2px;
+  width: 2px;
+  opacity: 0.6;
+  height: 18px;
+  animation: ${blink} 1.5s linear infinite;
+`
+
 const buttonFeedback = keyframes`
   0% { background-color: ${colors.textGreen} }
   50% { background-color: ${colors.red} }
@@ -89,9 +106,13 @@ const SoundButton = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  margin-right: 10px;
+  margin: 0 10px 0 20px;
   padding: 10px;
+  opacity: 0.5;
   animation: ${buttonFeedback} ${(props) => props.feedback ? '300ms' : '0ms'};
+  &:hover {
+    opacity: 1;
+  }
 `
 
 const Grammar = styled.ul`
@@ -196,7 +217,10 @@ class Translator extends React.Component {
                 })
               }
             </GlyphOuput>
-            <Input>{answer}</Input>
+            <Input>
+              <Text>{answer}</Text>
+              <BlinkingCursor />
+            </Input>
           </Translations>
           <SoundButton id='soundButton' onClick={this.submitAnswer}>
             <img width='40px' src={soundIcon} />
