@@ -54,6 +54,9 @@ const ContentPanel = styled.div`
   position: relative;
   color: white;
   z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 class Overlay extends React.Component {

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Glyph from 'components/Glyph'
 
+/*
 const Translations = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,6 +17,15 @@ const GlyphOuput = styled.div`
   justify-content: center;
   align-items: center;
   width: auto;
+`
+*/
+
+const Translations = styled.div`
+
+`
+
+const GlyphOuput = styled.div`
+
 `
 
 const Input = styled.div`

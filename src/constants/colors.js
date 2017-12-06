@@ -6,5 +6,6 @@ export default {
   blue: '',
   textBlue: '#3F7F82',
   gray: '#494949',
+  white: 'white',
   background: 'black'
 }
