@@ -55,8 +55,8 @@ const Continue = styled.div`
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 200px;
-  height: 38px;
+  width: 220px;
+  height: 50px;
   border: 2px solid ${colors.textGreen};
   border-radius: 15px;
   padding: 5px;

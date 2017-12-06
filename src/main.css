@@ -28,3 +28,7 @@ video {
                                 supported by Chrome and Opera */
 }
 
+/* Universal Box Sizing */
+*, *:before, *:after {
+  box-sizing: border-box;
+}

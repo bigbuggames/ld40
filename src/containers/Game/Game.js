@@ -3,14 +3,16 @@ import { connect } from 'react-redux'
 import styled, { injectGlobal } from 'styled-components'
 import localForage from 'localforage'
 
-import { getAssetsByType } from '../Engine/containers/AssetLoader/assetLoaderSelectors';
+import { getAssetsByType } from '../Engine/containers/AssetLoader/assetLoaderSelectors'
 import { playSound, stopSound } from 'engine/actions'
 
 import Shop from './containers/Shop'
 import Translator from './containers/Translator'
 
-import myradBoldIt from 'fonts/MyriadPro-BoldIt.otf';
-import myradItalic from 'fonts/MyriadPro-It.otf';
+import myradBoldIt from 'fonts/MyriadPro-BoldIt.otf'
+import myradItalic from 'fonts/MyriadPro-It.otf'
+
+import still from 'images/still.png'
 
 injectGlobal`
   @font-face {
@@ -31,10 +33,34 @@ injectGlobal`
 `;
 
 const Screen = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+`
+
+const GameContainer = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const ShopContainer = styled.div`
+  width: 684px;
+  height: 684px;
+  background: url(${still});
+  background-size: cover;
+`
+
+const TabletContainer = styled.div`
+  height: 750px;
+  width: 600px;
+  margin-left: 50px;
 `
 
 class Game extends React.Component {
@@ -51,8 +77,17 @@ class Game extends React.Component {
   render() {
     return (
       <Screen>
-        <Shop />
-        <Translator />
+        <GameContainer>
+
+          <ShopContainer>
+            <Shop />
+          </ShopContainer>
+
+          <TabletContainer>
+            <Translator />
+          </TabletContainer>
+
+        </GameContainer>
       </Screen>
     )
   }
