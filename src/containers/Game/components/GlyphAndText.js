@@ -25,7 +25,8 @@ const Translations = styled.div`
 `
 
 const GlyphOuput = styled.div`
-
+  display: flex;
+  align-items: center;
 `
 
 const Input = styled.div`
