@@ -41,7 +41,7 @@ const levels = [
     prep: 'prep-soup',
     notes: {
       grammar: [
-        'everything before (the) it\'s placed at the end of the sentence'
+        'everything before (the) is placed at the end of the sentence'
       ],
       dictionary: [
         'the => pep'
