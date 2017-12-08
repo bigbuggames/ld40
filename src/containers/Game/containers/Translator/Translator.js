@@ -11,6 +11,8 @@ import { isOverlayEnabled } from '../../../Engine/containers/Overlay/overlaySele
 import { playSound } from 'engine/actions'
 
 import colors from 'globals/colors'
+import animations from 'globals/animations'
+
 import Glyph from 'components/Glyph'
 
 import tablet from 'images/tablet.png'
@@ -133,12 +135,20 @@ const Dictionary = styled.ul`
   padding-left: 25px;
 `
 
+const fade = keyframes`
+  from { color: ${colors.red}; opacity: 0; }
+  to { color: ${colors.textYellow}; opacity: 1; }
+`
+
 const Rule = styled.li`
   list-style-type: circle;
   margin-top: 5px;
   color: ${colors.textYellow};
   font-family: "myrad";
   font-size: 14px;
+  color: red;
+  opacity: 0;
+  animation: ${fade} 5s forwards;
 `
 
 const Word = styled.li`
@@ -146,6 +156,7 @@ const Word = styled.li`
   margin-top: 5px;
   color:${colors.textYellow};
   font-family: "myrad";
+  animation: ${fade} 5s forwards;
 `
 
 class Translator extends React.Component {

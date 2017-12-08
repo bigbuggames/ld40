@@ -43,7 +43,7 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
   filter: opacity(${alpha});
-  background-color: ${colors.background};
+  background-color: ${colors.black};
   animation-name: ${(props) => props.fade};
   animation-duration: ${(props) => (props.instant) ? '0ms' : '250ms'};
   animation-direction: forwards;
