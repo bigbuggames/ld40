@@ -21,6 +21,7 @@ import { nextLevel } from '../Shop/shopActions';
 
 const Tablet = styled.div`
   position: relative;
+  filter: opacity(${(props) => props.dim ? 0.5 : 1});
 `
 
 const ExactWords = styled.div`
@@ -75,6 +76,15 @@ const Input = styled.div`
   align-items: center;
   width: auto;
   font-family: "myrad";
+`
+
+const OtherInput = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  font-family: "myrad";
+  height: 15px;
 `
 
 const Text = styled.div`
@@ -187,6 +197,10 @@ class Translator extends React.Component {
     document.onkeydown = this.handleKeyPress;
   }
 
+  state = {
+    inputAnswer: ''
+  }
+
   // We disable the user input when there's an overlay opened
   componentWillReceiveProps(nextProps) {
     if (nextProps.overlay) {
@@ -200,11 +214,17 @@ class Translator extends React.Component {
     this.props.tryAnswer(this.props.answer)
   }
 
+  handleInputChange = (ev) => {
+    this.setState({
+      inputAnswer: this.state.answer + this.input.value
+    })
+  }
+
   render() {
     const { answer, level } = this.props
     const textChars = answer.toLowerCase().split('')
     return (
-      <Tablet>
+      <Tablet dim={this.props.preping}>
         <img width='600px' src={tablet} />
         <Grammar>
           {this.props.grammar.map((rule, i) => {
@@ -227,10 +247,19 @@ class Translator extends React.Component {
                 })
               }
             </GlyphOuput>
-            <Input>
-              <Text>{answer}</Text>
-              <BlinkingCursor />
-            </Input>
+            {/*
+<OtherInput
+              value={this.state.inputAnswer}
+              placeholder='(type here)'
+              onChange={this.handleInputChange}
+              innerRef={(x) => { this.input = x }}
+            />
+            */}
+           
+              <Input>
+                <Text>{answer}</Text>
+                <BlinkingCursor />
+              </Input>
           </Translations>
           <SoundButton id='soundButton' onClick={this.submitAnswer}>
             <img width='40px' src={soundIcon} />
